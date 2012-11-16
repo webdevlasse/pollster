@@ -1,0 +1,8 @@
+<%= debug params %>
+<h2><%= @question.body %></h2>
+
+<% @answers.each do |a| %>
+  <% unless a.body.nil? %>
+    <%= a.body %><br>
+  <% end %>
+<% end %>

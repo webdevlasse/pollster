@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
       @question = Question.find(params[:id])
 
       respond_to do |format|
-        format.html { redirect_to poll_question_path }
+        format.html  #{ redirect_to poll_question_path(@poll) }
         format.json { render json: @question }
       end
     end
@@ -28,6 +28,7 @@ class QuestionsController < ApplicationController
     # GET /polls/new.json
     def new
       @question = Question.new
+      3.times {@question.answers.build}
       # :notice => "The encrypted url(slug) for your poll is #{@question.slug}"
 
       respond_to do |format|
@@ -65,7 +66,7 @@ class QuestionsController < ApplicationController
 
       respond_to do |format|
         if @question.update_attributes(params[:question])
-          format.html { redirect_to poll_questions_path(@poll,@question) }
+          format.html { redirect_to poll_questions_path(@poll)  }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }

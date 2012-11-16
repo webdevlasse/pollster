@@ -3,7 +3,7 @@ class Poll < ActiveRecord::Base
 
   attr_accessible :name, :slug
 
-  has_many :questions
+  has_many :questions, :dependent => :destroy
 
   def slug_save
     string = ""

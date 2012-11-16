@@ -1,11 +1,14 @@
 Polls::Application.routes.draw do
 
+  resources :answers
+
   root :to => "Polls#index"
+
 
   resources :polls do
     resources :questions
   end
-  get "/:slug" => "Polls#show_by_slug"
+  get "/:slug" => "Polls#show_by_slug "
 
 
   # Sample of regular route:
