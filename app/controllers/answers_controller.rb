@@ -27,8 +27,7 @@ class AnswersController < ApplicationController
    # GET /polls/new.json
    def new
       @answer = Question.find(params[:question_id]).answers.create
-      # @answer = @question.answers.create
-     # @answer = Answer.new
+
      # :notice => "The encrypted url(slug) for your poll is #{@answer.slug}"
 
      respond_to do |format|
@@ -51,7 +50,7 @@ class AnswersController < ApplicationController
 
      respond_to do |format|
        if @answer.save
-         format.html { redirect_to poll_questions_path(@poll) }
+         format.html { redirect_to poll_questions_path(@poll)}
          format.json { render json: @answer, status: :created, location: @answer }
        else
          format.html { render action: "new" }

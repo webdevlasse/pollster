@@ -1,0 +1,16 @@
+Name	Party	Location 1	Grade Level (since 1996)	Grade Level (112th Congress)	Years in Congress	DW1 Score
+
+def csv(file)
+  File.open(file) do|f|
+    columns = f.readline.chomp.split(',')
+
+    table = []
+    until f.eof?
+      row = f.readline.chomp.split(',')
+      row = columns.zip(row).flatten
+      table << Hash[*row]
+    end
+
+    return columns, table
+  end
+end

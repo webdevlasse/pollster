@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
       @question = Question.new
       3.times {@question.answers.build}
       # :notice => "The encrypted url(slug) for your poll is #{@question.slug}"
-
+#       flash[:notice] => "The encrypted url(slug) for your poll is #{@answer.slug}",
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @question }
@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
       respond_to do |format|
         if @question.save
 
-          format.html { redirect_to poll_questions_path(@poll) }
+          format.html {  redirect_to poll_questions_path(@poll) }
           format.json { render json: @question, status: :created, location: @question }
         else
           format.html { render action: "new" }

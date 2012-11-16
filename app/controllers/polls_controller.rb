@@ -35,7 +35,7 @@ class PollsController < ApplicationController
   def new
     @poll = Poll.new
     # :notice => "The encrypted url(slug) for your poll is #{@poll.slug}"
-
+    3.times {@poll.questions.build}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @poll }
