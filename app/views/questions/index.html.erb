@@ -1,15 +1,17 @@
 
 <%- model_class = Question -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-</div>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize %> for:</h1>          	 
+      <h2><%= @poll.name %></h2>
+	</div>       
+
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:question) %></th>
-   
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t 'Things to do'%></th>
+      <th><%= model_class.human_attribute_name(:answers) %></th>
 
     </tr>
   </thead>
@@ -19,10 +21,10 @@
         <td><%= link_to question.body, poll_question_path(@poll, question)%> </td>
 
         <td>
-           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+           <%= link_to "Edit the question",
                         edit_poll_question_path(@poll,question), :class => 'btn btn-mini' %>
 
-           <%= link_to t('.new_answer', :default => t("helpers.new_answer")),
+           <%= link_to "Answer the question",
                                       new_answer_path(:question_id => question, :poll_id => @poll.id), :class => 'btn btn-mini' %>
 
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -32,11 +34,12 @@
                       :class => 'btn btn-mini btn-danger' %> 
 
         </td> 
-        <td><%=l question.created_at %></td>
+        <td>&nbsp;</td>
 
       </tr>
       <% question.answers.reject{|a| a.body.nil? }.each do |a| %>
       <tr>
+        <td colspan="1">&nbsp;</td>
         <td colspan="1">&nbsp;</td>
         <td colspan="1"><%= a.body %></td>
       </tr>
@@ -45,10 +48,5 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_poll_question_path,
-            :class => 'btn btn-primary' %>
+<%= link_to "Create a new Question",new_poll_question_path, :class => 'question_button' %>
 
- <%= link_to t('.poll', :default => t("helpers.poll")),
-                        poll_path(@poll),
-                        :class => 'btn btn-primary' %>

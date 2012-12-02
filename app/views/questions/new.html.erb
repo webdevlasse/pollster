@@ -2,5 +2,6 @@
 <div class="page-header">
   <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
                                  :default => "New #{model_class.model_name.human}") %></h1>
-</div>
+</div> 
+<h2><%= @question.poll_id %> </h2>
 <%= render :partial => 'form' %>

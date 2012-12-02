@@ -1,7 +1,8 @@
-class Poll < ActiveRecord::Base
+class Poll < ActiveRecord::Base  
+  validates :name, :presence => true
   before_create :slug_save
 
-  attr_accessible :name, :slug
+  attr_accessible :name, :slug, :name
 
   has_many :questions, :dependent => :destroy
 

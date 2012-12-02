@@ -38,29 +38,20 @@
 
 
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="http://localhost:3000/">Polls</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
  
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+
+       
 
     <div class="container">
+	    <div class = "index_link">       
+	    <a class="brand" href="http://localhost:3000/">Pollster</a> 
+	    </div>
+	    <div class="tagline"><p> Create, Edit, Respond to Polls. In a very dangerous way.</p> </div>
         <div class="row">
-          <div class="span9">
+          <div class="span12">
              <%= yield %>
-          </div>
+          </div> 
+        </div>
          
 
             <% flash.each do |name, message|%>

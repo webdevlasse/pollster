@@ -6,33 +6,28 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:Poll_link) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @polls.each do |poll| %>
       <tr>
-        <td><%= link_to poll.id, poll_path(poll) %></td>
-        <td><%= poll.name %></td>
-        <td><%=l poll.created_at %></td>
+        <td><%= link_to poll.name, poll_path(poll) %></td>
         <td>
-	       	<%= link_to t('.questions', :default => t("helpers.questions")),
+	       	<%= link_to "See the poll questions",
 				                          poll_questions_path(poll), :class => 'btn'  %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_poll_path(poll), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to "Edit this poll", edit_poll_path(poll), :class => 'btn btn-mini' %>
+          <%= link_to "Destroy this poll",
                       poll_path(poll),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to "Create your own poll",
             new_poll_path,
             :class => 'btn btn-primary' %>
