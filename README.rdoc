@@ -1,0 +1,4 @@
+This app is one of the first I wrote in rails at Dev Bootcamp.  It has no authentication or authorization but has some features 
+I know I will use again in new pieces of software I write.  The css is bootstrapped, but with a lot of custom styling too. 
+In all honesty, I would probably rewrite the whole thing knowing what I know now. It was a valuable learning experience and fun
+to play with.  
